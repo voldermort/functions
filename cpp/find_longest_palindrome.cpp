@@ -34,3 +34,7 @@ int find_longest_palindrome(string str){
 	}
 	return ret;
 }
+
+
+
+

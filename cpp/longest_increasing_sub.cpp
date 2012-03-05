@@ -33,7 +33,7 @@ vector<int> longest_incr(const vector<int>&v){
 	vector<int> r;
 	
 	for(int i=0;i<(int)v.size();i++){
-		if(ans[i]==ret){r.push_back(v[i]);}
+		if(ans[i]==ret){r.push_back(v[i]);--ret;}
 		if(!ret)break;
 	}
 	return r;

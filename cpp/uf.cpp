@@ -1,37 +1,42 @@
-class Uf
-{
-  public:
-	int* id ;
-	int* sz;
+
+class UF{
+	public:
 	int count;
-	Uf(int n){
+	int* id;
+	int* sz;
+	UF(int n){
+		count=n;
 		id=new int[n];
 		sz=new int[n];
-		count =0;
-		for(int i=0;i<n;i++){
-			id[i]=i;
+		for(int i=0;i<n;i++)
+		{
 			sz[i]=1;
-		}			
+			id[i]=i;
+		}
 	}
+	
 	int find(int p){
-		while(p!=id[p])
-			p=id[p];
+		while(p!=id[p])p=id[p];
 		return p;
-	}
-
-	bool connected(int i,int j){		
-		return find(i)==find(j);	
 	}
 	
 	void uni(int p,int q){
-		int i=find(p);
-		int j=find(q);
-		if(i==j)return ;
-		
-		if(sz[i]>sz[j]){id[j]=i;sz[j]+=sz[i];}
-		else {id[i]=j;sz[j]+=sz[i];}
+		int i = find(p);
+		int j = find(q);
+		if (i == j) return;
+		if   (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
+		else                 { id[j] = i; sz[i] += sz[j]; }
 		count--;
 	}
-		
 	
+	bool connected(int i,int j){
+		int p=find(i);
+		int q=find(j);
+		return p==q;
+		
+	}
+	 public int count() {
+		return count;
+	}
+
 };

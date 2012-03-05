@@ -1,0 +1,60 @@
+#include<cstdio>
+#include<sstream>
+#include<cstdlib>
+#include<cctype>
+#include<cmath>
+#include<algorithm>
+#include<set>
+#include<queue>
+#include<stack>
+#include<list>
+#include<iostream>
+#include<string>
+#include<vector>
+#include<cstring>
+#include<map>
+#include<cassert>
+#include<climits>
+#include<complex>
+using namespace std;
+
+double r,d,h1,ab,h2,a,b;
+double pi=acos(0.0);
+double eps=1e-6;
+
+bool f(double m){
+	
+	double ll=ab*sin(m);
+	double bb=ab*cos(m);
+	if(bb<(2*r)&&ll<(2*r))return 1;
+	else return 0;
+}
+
+
+int main(){
+	ios_base::sync_with_stdio(0);
+	int t;
+	cin>>t;
+	for(int i=1;i<=t;i++){
+	cin>>r>>d>>h1;
+	ab=2*(sqrt(r*r-(r-d)*(r-d)));
+	a=asin((r-h1)/r);
+	b=asin((r-d)/r);
+	h2=h1+ab*sin(a-b);
+	printf("Case %d: %.4f\n",i,h2);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
